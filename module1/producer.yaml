@@ -1,0 +1,19 @@
+version: '3.8'
+
+networks:
+  kafka-network:
+    external: true
+
+services:  
+  producer:
+    image: python:3.10-slim
+    container_name: producer
+    networks:
+      - kafka-network
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: bash -c "pip install -r requirements.txt && python3 producer_app.py"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka-0:9092
+      PRODUCE_MESSAGES: 500

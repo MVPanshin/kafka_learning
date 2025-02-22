@@ -1,0 +1,34 @@
+version: '3.8'
+
+networks:
+  kafka-network:
+    external: true
+
+services:  
+  consumer-1:
+    image: python:3.10-slim
+    container_name: consumer-1
+    networks:
+      - kafka-network
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: bash -c "pip install --upgrade pip && pip install -r requirements.txt && python3 consumer_pull.py"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka-0:9092
+      KAFKA_POLL_TIMEOUT: "10.0"
+      GROUP_ID: consumer-1
+
+  consumer-2:
+    image: python:3.10-slim
+    container_name: consumer-2
+    networks:
+      - kafka-network
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: bash -c "pip install --upgrade pip && pip install -r requirements.txt && python3 consumer_pull.py"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka-0:9092
+      KAFKA_POLL_TIMEOUT: "1.0"
+      GROUP_ID: consumer-2

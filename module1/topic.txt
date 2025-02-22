@@ -1,0 +1,9 @@
+# Команда создания топика (описана в ридми)
+/opt/bitnami/kafka/bin/kafka-topics.sh --create --if-not-exists --topic orders --bootstrap-server localhost:9092 --partitions 3 --replication-factor 2
+
+# Описание топика
+kafka_learning\module1> docker exec -it $(docker ps -a --no-trunc --filter name=kafka-1 -q) bash -c "/opt/bitnami/kafka/bin/kafka-topics.sh --describe --topic orders --bootstrap-server localhost:9092"
+Topic: orders   TopicId: XzS9UcScTl68xHWkzsEFOA PartitionCount: 3       ReplicationFactor: 2    Configs: compression.type=producer,leader.replication.throttled.replicas=,min.insync.replicas=1,message.downconversion.enable=true,segment.jitter.ms=0,cleanup.policy=delete,flush.ms=9223372036854775807,follower.replication.throttled.replicas=,segment.bytes=1073741824,retention.ms=604800000,flush.messages=9223372036854775807,message.format.version=3.0-IV1,max.compaction.lag.ms=9223372036854775807,file.delete.delay.ms=60000,max.message.bytes=1048588,min.compaction.lag.ms=0,message.timestamp.type=CreateTime,preallocate=false,index.interval.bytes=4096,min.cleanable.dirty.ratio=0.5,unclean.leader.election.enable=false,delete.retention.ms=86400000,retention.bytes=-1,segment.ms=604800000,message.timestamp.difference.max.ms=9223372036854775807,segment.index.bytes=10485760
+        Topic: orders   Partition: 0    Leader: 1       Replicas: 1,2   Isr: 2,1
+        Topic: orders   Partition: 1    Leader: 2       Replicas: 2,0   Isr: 2,0
+        Topic: orders   Partition: 2    Leader: 0       Replicas: 0,1   Isr: 1,0
