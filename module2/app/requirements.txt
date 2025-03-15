@@ -1,0 +1,4 @@
+confluent-kafka
+faust-streaming
+faust-streaming-rocksdb
+rocksdict

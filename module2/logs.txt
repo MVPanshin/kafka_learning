@@ -1,0 +1,115 @@
+﻿Collecting confluent-kafka
+  Downloading confluent_kafka-2.8.2-cp310-cp310-manylinux_2_28_x86_64.whl (3.8 MB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 3.8/3.8 MB 3.4 MB/s eta 0:00:00
+Collecting faust-streaming
+  Downloading faust_streaming-0.11.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 1.2/1.2 MB 5.1 MB/s eta 0:00:00
+Collecting faust-streaming-rocksdb
+  Downloading faust_streaming_rocksdb-0.9.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (66.7 MB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 66.7/66.7 MB 2.6 MB/s eta 0:00:00
+Collecting rocksdict
+  Downloading rocksdict-0.3.25-cp310-cp310-manylinux_2_28_x86_64.whl (4.1 MB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 4.1/4.1 MB 1.9 MB/s eta 0:00:00
+Collecting mypy-extensions
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Collecting aiokafka>=0.10.0
+  Downloading aiokafka-0.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 1.1/1.1 MB 2.0 MB/s eta 0:00:00
+Collecting terminaltables<4.0,>=3.1
+  Downloading terminaltables-3.1.10-py2.py3-none-any.whl (15 kB)
+Collecting venusian==3.1.0
+  Downloading venusian-3.1.0-py3-none-any.whl (13 kB)
+Collecting croniter>=0.3.16
+  Downloading croniter-6.0.0-py2.py3-none-any.whl (25 kB)
+Collecting aiohttp-cors<2.0,>=0.7
+  Downloading aiohttp_cors-0.7.0-py3-none-any.whl (27 kB)
+Collecting opentracing<=2.4.0,>=1.3.0
+  Downloading opentracing-2.4.0.tar.gz (46 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 46.2/46.2 kB 1.5 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting click<8.2,>=6.7
+  Downloading click-8.1.8-py3-none-any.whl (98 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 98.2/98.2 kB 2.4 MB/s eta 0:00:00
+Collecting intervaltree
+  Downloading intervaltree-3.1.0.tar.gz (32 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting yarl<2.0,>=1.0
+  Downloading yarl-1.18.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (319 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 319.7/319.7 kB 1.9 MB/s eta 0:00:00
+Collecting mode-streaming>=0.4.0
+  Downloading mode_streaming-0.4.1-py2.py3-none-any.whl (94 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 94.7/94.7 kB 2.4 MB/s eta 0:00:00
+Collecting aiohttp<4.0,>=3.8.0
+  Downloading aiohttp-3.11.13-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 1.6/1.6 MB 2.1 MB/s eta 0:00:00
+Requirement already satisfied: setuptools>=25 in /usr/local/lib/python3.10/site-packages (from faust-streaming-rocksdb->-r requirements.txt (line 3)) (65.5.1)
+Collecting aiohappyeyeballs>=2.3.0
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Collecting aiosignal>=1.1.2
+  Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+Collecting propcache>=0.2.0
+  Downloading propcache-0.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (205 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 205.4/205.4 kB 2.2 MB/s eta 0:00:00
+Collecting async-timeout<6.0,>=4.0
+  Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Collecting attrs>=17.3.0
+  Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 63.8/63.8 kB 2.5 MB/s eta 0:00:00
+Collecting frozenlist>=1.1.1
+  Downloading frozenlist-1.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (241 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 241.9/241.9 kB 2.4 MB/s eta 0:00:00
+Collecting multidict<7.0,>=4.5
+  Downloading multidict-6.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (124 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 124.6/124.6 kB 2.5 MB/s eta 0:00:00
+Collecting packaging
+  Downloading packaging-24.2-py3-none-any.whl (65 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 65.5/65.5 kB 2.5 MB/s eta 0:00:00
+Collecting typing-extensions>=4.10.0
+  Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Collecting python-dateutil
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 229.9/229.9 kB 2.3 MB/s eta 0:00:00
+Collecting pytz>2021.1
+  Downloading pytz-2025.1-py2.py3-none-any.whl (507 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 507.9/507.9 kB 2.0 MB/s eta 0:00:00
+Collecting croniter>=0.3.16
+  Downloading croniter-2.0.7-py2.py3-none-any.whl (21 kB)
+Collecting colorlog<7.0.0,>=6.0.0
+  Downloading colorlog-6.9.0-py3-none-any.whl (11 kB)
+Collecting idna>=2.0
+  Downloading idna-3.10-py3-none-any.whl (70 kB)
+     тФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБтФБ 70.4/70.4 kB 2.4 MB/s eta 0:00:00
+Collecting sortedcontainers<3.0,>=2.0
+  Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Building wheels for collected packages: opentracing, intervaltree
+  Building wheel for opentracing (setup.py): started
+  Building wheel for opentracing (setup.py): finished with status 'done'
+  Created wheel for opentracing: filename=opentracing-2.4.0-py3-none-any.whl size=51404 sha256=b2ce301675263888d7d7821583a0e58de5217a83cdead516b9a314ee4b029137
+  Stored in directory: /root/.cache/pip/wheels/5e/c0/c7/3feeba580a62305dea31634e0f2686f0b81a9b3c6be967d093
+  Building wheel for intervaltree (setup.py): started
+  Building wheel for intervaltree (setup.py): finished with status 'done'
+  Created wheel for intervaltree: filename=intervaltree-3.1.0-py2.py3-none-any.whl size=26096 sha256=b1f75ee0f6fea7d0f511324e05defa61fa6d5dc7f65190023e54c4cece71bebd
+  Stored in directory: /root/.cache/pip/wheels/fa/80/8c/43488a924a046b733b64de3fac99252674c892a4c3801c0a61
+Successfully built opentracing intervaltree
+Installing collected packages: sortedcontainers, rocksdict, pytz, opentracing, venusian, typing-extensions, terminaltables, six, propcache, packaging, mypy-extensions, intervaltree, idna, frozenlist, faust-streaming-rocksdb, confluent-kafka, colorlog, click, attrs, async-timeout, aiohappyeyeballs, python-dateutil, multidict, aiosignal, aiokafka, yarl, croniter, mode-streaming, aiohttp, aiohttp-cors, faust-streaming
+Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.11.13 aiohttp-cors-0.7.0 aiokafka-0.12.0 aiosignal-1.3.2 async-timeout-5.0.1 attrs-25.3.0 click-8.1.8 colorlog-6.9.0 confluent-kafka-2.8.2 croniter-2.0.7 faust-streaming-0.11.3 faust-streaming-rocksdb-0.9.3 frozenlist-1.5.0 idna-3.10 intervaltree-3.1.0 mode-streaming-0.4.1 multidict-6.1.0 mypy-extensions-1.0.0 opentracing-2.4.0 packaging-24.2 propcache-0.3.0 python-dateutil-2.9.0.post0 pytz-2025.1 rocksdict-0.3.25 six-1.17.0 sortedcontainers-2.4.0 terminaltables-3.1.10 typing-extensions-4.12.2 venusian-3.1.0 yarl-1.18.3
++╞Тa┬╡SтАа v0.11.3+------------------------------------------+
+| id          | processor_messages                       |
+| transport   | [URL('kafka://kafka-0:9092')]            |
+| store       | rocksdb:                                 |
+| web         | http://localhost:6066/                   |
+| log         | -stderr- (info)                          |
+| pid         | 1                                        |
+| hostname    | 57cc2fd20523                             |
+| platform    | CPython 3.10.16 (Linux x86_64)           |
+|        +    | Cython (GCC 12.2.0)                      |
+| drivers     |                                          |
+|   transport | aiokafka=0.12.0                          |
+|   web       | aiohttp=3.11.13                          |
+| datadir     | /app/processor_messages-data             |
+| appdir      | /app/processor_messages-data/v1          |
++-------------+------------------------------------------+
