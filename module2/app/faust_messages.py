@@ -14,7 +14,7 @@ logging.basicConfig(
 )
 
 # Чтение переменной окружения
-USER_ID = int(os.getenv("USER_ID", "1"))
+USER_ID = int(os.getenv("USER_ID", "user_1"))
 KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka-0:9092")
 
 # Конфигурация Faust-приложения

@@ -32,18 +32,18 @@ services:
     depends_on:
       - faust_message_processor
 
-  #faust_writer-1:
-  #  image: python:3.10-slim
-  #  container_name: faust_writer-1
-  #  networks:
-  #    - kafka-network
-  #  working_dir: /app
-  #  volumes:
-  #    - ./app:/app
-  #  command: bash -c "pip install -r requirements_light.txt && python3 faust_messages.py worker -l INFO"
-  #  environment:
-  #    KAFKA_BOOTSTRAP_SERVERS: kafka-0:9092
-  #    USER_ID: 2
-  #  depends_on:
-  #    - faust_message_processor
+  faust_writer-1:
+    image: python:3.10-slim
+    container_name: faust_writer-1
+    networks:
+      - kafka-network
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: bash -c "pip install -r requirements_light.txt && python3 faust_messages.py worker -l INFO"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka-0:9092
+      USER_ID: 2
+    depends_on:
+      - faust_message_processor
 
