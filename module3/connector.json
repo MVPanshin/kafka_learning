@@ -1,0 +1,22 @@
+{
+      "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "key.converter.schemas.enable": "true",
+      "value.converter.schemas.enable": "true",
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "database.hostname": "postgres",
+      "database.port": "5432",
+      "database.user": "postgres-user",
+      "database.password": "postgres-pw",
+      "database.dbname": "customers",
+      "database.server.name": "customers",
+      "table.whitelist": "public.customers",
+      "topic.prefix": "customers",
+      "topic.creation.enable": "true",
+      "topic.creation.default.replication.factor": "-1",
+      "topic.creation.default.partitions": "-1",
+      "skipped.operations": "none",
+      "signal.data.collection": "true",
+      "signal.kafka.key": "true",
+      "signal.kafka.value": "true"
+}
