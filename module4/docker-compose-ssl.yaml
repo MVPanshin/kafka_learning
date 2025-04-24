@@ -52,6 +52,7 @@ services:
         -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
         -Dzookeeper.allowSaslFailedClients=false
         -Dzookeeper.requireClientAuthScheme=sasl
+        -DjaasLoginRenew=3600000
 
  zookeeper-3:
     image: confluentinc/cp-zookeeper:7.4.4
@@ -80,6 +81,7 @@ services:
         -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
         -Dzookeeper.allowSaslFailedClients=false
         -Dzookeeper.requireClientAuthScheme=sasl
+        -DjaasLoginRenew=3600000
 
  kafka-1:
    image: confluentinc/cp-kafka:7.4.4
@@ -107,8 +109,8 @@ services:
      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,SASL_SSL://0.0.0.0:9093
      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,SASL_SSL://kafka-1:9093
      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_SSL:SASL_SSL
-     # KAFKA_INTER_BROKER_LISTENER_NAME: SSL
      KAFKA_LISTENER_SECURITY_PROTOCOL: SASL_SSL
+     KAFKA_INTER_BROKER_LISTENER_NAME: SASL_SSL
      KAFKA_SSL_KEYSTORE_FILENAME: kafka-1.keystore.pkcs12
      KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-1_keystore_creds
      KAFKA_SSL_KEY_CREDENTIALS: kafka-1_sslkey_creds
@@ -151,7 +153,7 @@ services:
      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9094,SASL_SSL://0.0.0.0:9095
      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9094,SASL_SSL://kafka-2:9095
      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_SSL:SASL_SSL
-     # KAFKA_INTER_BROKER_LISTENER_NAME: SSL
+     KAFKA_INTER_BROKER_LISTENER_NAME: SASL_SSL
      KAFKA_LISTENER_SECURITY_PROTOCOL: SASL_SSL
      KAFKA_SSL_KEYSTORE_FILENAME: kafka-2.keystore.pkcs12
      KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-2_keystore_creds
@@ -195,7 +197,7 @@ services:
      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9096,SASL_SSL://0.0.0.0:9097
      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:9096,SASL_SSL://kafka-3:9097
      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_SSL:SASL_SSL
-     # KAFKA_INTER_BROKER_LISTENER_NAME: SSL
+     KAFKA_INTER_BROKER_LISTENER_NAME: SASL_SSL
      KAFKA_LISTENER_SECURITY_PROTOCOL: SASL_SSL
      KAFKA_SSL_KEYSTORE_FILENAME: kafka-3.keystore.pkcs12
      KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-3_keystore_creds
