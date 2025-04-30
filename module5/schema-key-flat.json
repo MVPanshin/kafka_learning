@@ -1,0 +1,3 @@
+{
+    "schema": "{\"type\":\"record\",\"name\":\"Key\",\"fields\":[{\"name\":\"item_id\",\"type\":\"int\"}]}"
+}

@@ -1,0 +1,77 @@
+services:
+ zookeeper:
+   image: confluentinc/cp-zookeeper:7.4.4
+   container_name: zookeeper
+   hostname: zookeeper
+   ports:
+     - "2181:2181"
+   networks:
+     - confluent
+   environment:
+     ZOOKEEPER_SERVER_ID: 1
+     ZOOKEEPER_CLIENT_PORT: 2181
+     ZOOKEEPER_TICK_TIME: 2000
+     ZOOKEEPER_INIT_LIMIT: 5
+     ZOOKEEPER_SYNC_LIMIT: 2
+
+ kafka-1:
+   image: confluentinc/cp-kafka:7.4.4
+   container_name: kafka-1
+   hostname: kafka-1
+   depends_on:
+     - zookeeper
+   ports:
+     - "9092:9092"
+     - "9093:9093"
+   networks:
+     - confluent
+   environment:
+     KAFKA_BROKER_ID: 1
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+     KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+     KAFKA_DELETE_TOPIC_ENABLE: true
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+     KAFKA_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://0.0.0.0:9093
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://localhost:9093
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+     KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+
+ spark-master:
+   image: bitnami/spark:3.5.4
+   container_name: spark-master
+   ports:
+     - "7077:7077"  # Порт для подключения Executors
+     - "8080:8080"  # HTTP-порт для Web UI Apache Spark master
+   environment:
+     SPARK_MODE: master
+
+ spark-worker:
+   image: bitnami/spark:3.5.4
+   container_name: spark-worker
+   depends_on:
+     - spark-master
+   ports:
+     - "8081:8081"  # HTTP-порт для Web UI Apache Spark worker
+   environment:
+     SPARK_MODE: worker
+     SPARK_MASTER_URL: spark://spark-master:7077
+
+ consumer-spark:
+   image: python:3.10-slim
+   container_name: consumer-spark
+   networks:
+   - confluent
+   working_dir: /app
+   volumes:
+     - ./consumer_spark:/app
+   command: bash -c "pip install -r requirements.txt && tail -f /dev/null"
+   depends_on:
+     - kafka-1
+     - spark-master
+     - spark-worker
+   environment:
+     KAFKA_BOOTSTRAP_SERVERS: kafka-1:9092
+     PRODUCE_MESSAGES: 500 
+
+networks:
+ confluent:

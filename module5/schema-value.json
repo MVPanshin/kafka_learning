@@ -1,0 +1,22 @@
+{
+    "type": "record",
+    "name": "Value",
+    "fields": [
+      {
+        "name": "item_id",
+        "type": "int"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "price",
+        "type": "double"
+      }
+    ]
+}

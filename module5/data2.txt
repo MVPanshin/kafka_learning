@@ -1,0 +1,15 @@
+{"item_id":5}~{"item_id":5, "name":"Item 5", "description": "Description for item 5", "price": 3000.50}
+{"item_id":6}~{"item_id":6, "name":"Item 6", "description": "Description for item 6", "price": 2500.00}
+{"item_id":7}~{"item_id":7, "name":"Item 7", "description": "Description for item 7", "price": 1500.00}
+{"item_id":8}~{"item_id":8, "name":"Item 8", "description": "Description for item 8", "price": 5000.00}
+{"item_id":9}~{"item_id":9, "name":"Item 9", "description": "Description for item 9", "price": 7000.00}
+{"item_id":10}~{"item_id":10, "name":"Item 10", "description": "Description for item 10", "price": 15000.00}
+{"item_id":11}~{"item_id":11, "name":"Item 11", "description": "Description for item 11", "price": 1000.00}
+{"item_id":12}~{"item_id":12, "name":"Item 12", "description": "Description for item 12", "price": 500.00}
+{"item_id":13}~{"item_id":13, "name":"Item 13", "description": "Description for item 13", "price": 1200.00}
+{"item_id":14}~{"item_id":14, "name":"Item 14", "description": "Description for item 14", "price": 200.00}
+{"item_id":15}~{"item_id":15, "name":"Item 15", "description": "Description for item 15", "price": 333.00}
+{"item_id":16}~{"item_id":16, "name":"Item 16", "description": "Description for item 16", "price": 11.00}
+{"item_id":17}~{"item_id":17, "name":"Item 17", "description": "Description for item 17", "price": 5.50}
+{"item_id":18}~{"item_id":18, "name":"Item 18", "description": "Description for item 18", "price": 15.20}
+{"item_id":19}~{"item_id":19, "name":"Item 19", "description": "Description for item 19", "price": 5000.00}
