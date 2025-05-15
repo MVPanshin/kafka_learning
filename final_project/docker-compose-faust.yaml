@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+ products_faust:
+  image: python:3.10-slim
+  container_name: products_faust
+  networks:
+    - confluent
+  working_dir: /app
+  volumes:
+    - ./app/faust_app:/app
+    - ./ssl:/app/ssl
+  command: bash -c "pip install -r requirements.txt && python3 faust_processor.py worker -l INFO"
+  environment:
+    KAFKA_BOOTSTRAP_SERVERS: kafka-1:9093
+    SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+    KAFKA_PRODUCTS_TOPIC: "products"
+    KAFKA_PRODUCTS_CLEAN_TOPIC: "products_clean"
+    SASL_USERNAME: "admin"
+    SASL_PASSWORD: "admin-secret"
+
+networks:
+ confluent:
+  driver: bridge

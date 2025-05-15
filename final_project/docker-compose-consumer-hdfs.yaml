@@ -1,0 +1,19 @@
+services:
+ consumer-hdfs:
+   image: python:3.10-slim
+   container_name: consumer-hdfs
+   networks:
+     - confluent
+   working_dir: /app
+   volumes:
+     - ./app/consumer_hdfs:/app
+   command: bash -c "pip install -r requirements.txt && python3 main_to_hdfs.py"
+   # command: bash -c "pip install -r requirements.txt && tail -f /dev/null"
+   environment:
+     KAFKA_BOOTSTRAP_SERVERS: kafka-destination-1:9192
+     SCHEMA_REGISTRY_URL: http://schema-registry:8081
+     HDFS_URI: http://hadoop-namenode:9870
+
+networks:
+ confluent:
+  driver: bridge

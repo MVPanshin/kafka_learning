@@ -1,0 +1,15 @@
+attrs
+avro
+authlib
+cachetools
+confluent-kafka
+fastavro
+httpx
+requests
+faker
+fastapi>=0.95.0,<0.96.0
+uvicorn>=0.21.1,<0.22.0
+asyncpg
+sqlalchemy
+pydantic[with-sql]
+asyncio

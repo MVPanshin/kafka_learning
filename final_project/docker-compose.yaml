@@ -1,0 +1,486 @@
+services:
+ zookeeper-1:
+   image: confluentinc/cp-zookeeper:7.4.4
+   restart: always
+   container_name: zookeeper-1
+   hostname: zookeeper-1
+   ports:
+     - "2181:2181"
+   volumes:
+     - data-zookeeper-log-1:/var/lib/zookeeper/log
+     - data-zookeeper-data-1:/var/lib/zookeeper/data
+     - ./ssl:/etc/zookeeper/secrets
+   networks:
+     - confluent
+   environment:
+     ZOOKEEPER_SERVER_ID: 1
+     ZOOKEEPER_CLIENT_PORT: 2181
+     ZOOKEEPER_TICK_TIME: 2000
+     # ZOOKEEPER_INIT_LIMIT: 5
+     # ZOOKEEPER_SYNC_LIMIT: 2
+     ZOOKEEPER_REQUIRE_CLIENT_AUTH_SCHEME: "sasl"
+     ZOOKEEPER_SASL_ENABLED: "true"
+     ZOOKEEPER_SERVERS: zookeeper-1:2888:3888 #;zookeeper-2:2888:3888;zookeeper-3:2888:3888
+     KAFKA_OPTS: -Djava.security.auth.login.config=/etc/zookeeper/secrets/zookeeper.sasl.jaas.conf
+       -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+       -Dzookeeper.allowSaslFailedClients=false
+       -Dzookeeper.requireClientAuthScheme=sasl
+       -DjaasLoginRenew=3600000
+
+ # zookeeper-2:
+ #    image: confluentinc/cp-zookeeper:7.4.4
+ #    restart: always
+ #    container_name: zookeeper-2
+ #    hostname: zookeeper-2
+ #    ports:
+ #      - "2182:2182"
+ #    volumes:
+ #      - data-zookeeper-log-2:/var/lib/zookeeper/log
+ #      - data-zookeeper-data-2:/var/lib/zookeeper/data
+ #      - ./ssl:/etc/zookeeper/secrets
+ #    networks:
+ #      - confluent
+ #    environment:
+ #      ZOOKEEPER_SERVER_ID: 2
+ #      ZOOKEEPER_CLIENT_PORT: 2182
+ #      ZOOKEEPER_TICK_TIME: 2000
+ #      ZOOKEEPER_INIT_LIMIT: 5
+ #      ZOOKEEPER_SYNC_LIMIT: 2
+ #      ZOOKEEPER_REQUIRE_CLIENT_AUTH_SCHEME: "sasl"
+ #      ZOOKEEPER_SASL_ENABLED: "true"
+ #      ZOOKEEPER_SERVERS: zookeeper-1:2888:3888;zookeeper-2:2888:3888;zookeeper-3:2888:3888
+ #      KAFKA_OPTS: -Djava.security.auth.login.config=/etc/zookeeper/secrets/zookeeper.sasl.jaas.conf
+ #        -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+ #        -Dzookeeper.allowSaslFailedClients=false
+ #        -Dzookeeper.requireClientAuthScheme=sasl
+ #        -DjaasLoginRenew=3600000
+
+ #zookeeper-3:
+ #   image: confluentinc/cp-zookeeper:7.4.4
+ #   restart: always
+ #   container_name: zookeeper-3
+ #   hostname: zookeeper-3
+ #   ports:
+ #     - "2183:2183"
+ #   volumes:
+ #     - data-zookeeper-log-3:/var/lib/zookeeper/log
+ #     - data-zookeeper-data-3:/var/lib/zookeeper/data
+ #     - ./ssl:/etc/zookeeper/secrets
+ #   networks:
+ #     - confluent
+ #   environment:
+ #     ZOOKEEPER_SERVER_ID: 3
+ #     ZOOKEEPER_CLIENT_PORT: 2183
+ #     ZOOKEEPER_TICK_TIME: 2000
+ #     ZOOKEEPER_INIT_LIMIT: 5
+ #     ZOOKEEPER_SYNC_LIMIT: 2
+ #     ZOOKEEPER_REQUIRE_CLIENT_AUTH_SCHEME: "sasl"
+ #     ZOOKEEPER_SASL_ENABLED: "true"
+ #     ZOOKEEPER_AUTH_PROVIDER_1: "org.apache.zookeeper.server.auth.SASLAuthenticationProvider"
+ #     ZOOKEEPER_SERVERS: zookeeper-1:2888:3888;zookeeper-2:2888:3888;zookeeper-3:2888:3888
+ #     KAFKA_OPTS: -Djava.security.auth.login.config=/etc/zookeeper/secrets/zookeeper.sasl.jaas.conf
+ #       -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+ #       -Dzookeeper.allowSaslFailedClients=false
+ #       -Dzookeeper.requireClientAuthScheme=sasl
+ #       -DjaasLoginRenew=3600000
+
+ kafka-1:
+   image: confluentinc/cp-server:7.4.0
+   restart: always
+   container_name: kafka-1
+   hostname: kafka-1
+   depends_on:
+     - zookeeper-1
+     # - zookeeper-2
+     # - zookeeper-3
+   ports:
+     - "9092:9092"
+     - "9093:9093"
+     - "9101:9101"
+   networks:
+     - confluent
+   volumes:
+     - data-kafka-1:/var/lib/kafka/data
+     - ./ssl:/etc/kafka/secrets
+   environment:
+     KAFKA_BROKER_ID: 1
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181 #,zookeeper-2:2182,zookeeper-3:2183
+     KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+     KAFKA_DELETE_TOPIC_ENABLE: true
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,SASL_SSL://0.0.0.0:9093
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,SASL_SSL://kafka-1:9093
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_SSL:SASL_SSL
+     KAFKA_LISTENER_SECURITY_PROTOCOL: SASL_SSL
+     KAFKA_INTER_BROKER_LISTENER_NAME: SASL_SSL
+     KAFKA_SSL_KEYSTORE_FILENAME: kafka-1.keystore.pkcs12
+     KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-1_keystore_creds
+     KAFKA_SSL_KEY_CREDENTIALS: kafka-1_sslkey_creds
+     KAFKA_SSL_TRUSTSTORE_FILENAME: kafka-1.truststore.jks
+     KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka-1_truststore_creds
+     KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: https
+     KAFKA_SSL_CLIENT_AUTH: "required"
+     # KAFKA_LISTENER_NAME_BROKER_SASL_ENABLED_MECHANISMS: PLAIN
+     KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+     KAFKA_SUPER_USERS: "User:admin"
+     KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+     # KAFKA_ZOOKEEPER_SASL_CLIENT: true
+     KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/secrets/kafka.sasl.jaas.conf"
+     KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+     KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+     KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+     KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+     CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka-1:9093
+     CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+     CONFLUENT_METRICS_ENABLE: 'true'
+     CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+     KAFKA_JMX_PORT: 9101
+     KAFKA_JMX_HOSTNAME: localhost
+
+ kafka-2:
+   image: confluentinc/cp-server:7.4.0
+   restart: always
+   container_name: kafka-2
+   hostname: kafka-2
+   depends_on:
+     - zookeeper-1
+     # - zookeeper-2
+     # - zookeeper-3
+   ports:
+     - "9094:9094"
+     - "9095:9095"
+     - "9102:9102"
+   networks:
+     - confluent
+   volumes:
+     - data-kafka-2:/var/lib/kafka/data
+     - ./ssl:/etc/kafka/secrets
+   environment:
+     KAFKA_BROKER_ID: 2
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181 #,zookeeper-2:2182,zookeeper-3:2183
+     KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+     KAFKA_DELETE_TOPIC_ENABLE: true
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9094,SASL_SSL://0.0.0.0:9095
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9094,SASL_SSL://kafka-2:9095
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_SSL:SASL_SSL
+     KAFKA_INTER_BROKER_LISTENER_NAME: SASL_SSL
+     KAFKA_LISTENER_SECURITY_PROTOCOL: SASL_SSL
+     KAFKA_SSL_KEYSTORE_FILENAME: kafka-2.keystore.pkcs12
+     KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-2_keystore_creds
+     KAFKA_SSL_KEY_CREDENTIALS: kafka-2_sslkey_creds
+     KAFKA_SSL_TRUSTSTORE_FILENAME: kafka-2.truststore.jks
+     KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka-2_truststore_creds
+     KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: https
+     KAFKA_SSL_CLIENT_AUTH: "required"
+     # KAFKA_LISTENER_NAME_BROKER_SASL_ENABLED_MECHANISMS: PLAIN
+     KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+     KAFKA_SUPER_USERS: "User:admin"
+     KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+     # KAFKA_ZOOKEEPER_SASL_CLIENT: true
+     KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/secrets/kafka.sasl.jaas.conf"
+     KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+     KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+     KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+     KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+     CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka-2:9095
+     CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+     CONFLUENT_METRICS_ENABLE: 'true'
+     CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+     KAFKA_JMX_PORT: 9102
+     KAFKA_JMX_HOSTNAME: localhost
+
+ kafka-3:
+   image: confluentinc/cp-server:7.4.0
+   restart: always
+   container_name: kafka-3
+   hostname: kafka-3
+   depends_on:
+     - zookeeper-1
+     # - zookeeper-2
+     # - zookeeper-3
+   ports:
+     - "9096:9096"
+     - "9097:9097"
+     - "9103:9103"
+   networks:
+     - confluent
+   volumes:
+     - data-kafka-3:/var/lib/kafka/data
+     - ./ssl:/etc/kafka/secrets
+   environment:
+     KAFKA_BROKER_ID: 3
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181 #,zookeeper-2:2182,zookeeper-3:2183
+     KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+     KAFKA_DELETE_TOPIC_ENABLE: true
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9096,SASL_SSL://0.0.0.0:9097
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:9096,SASL_SSL://kafka-3:9097
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_SSL:SASL_SSL
+     KAFKA_INTER_BROKER_LISTENER_NAME: SASL_SSL
+     KAFKA_LISTENER_SECURITY_PROTOCOL: SASL_SSL
+     KAFKA_SSL_KEYSTORE_FILENAME: kafka-3.keystore.pkcs12
+     KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-3_keystore_creds
+     KAFKA_SSL_KEY_CREDENTIALS: kafka-3_sslkey_creds
+     KAFKA_SSL_TRUSTSTORE_FILENAME: kafka-3.truststore.jks
+     KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka-3_truststore_creds
+     KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: https
+     KAFKA_SSL_CLIENT_AUTH: "required"
+    # KAFKA_LISTENER_NAME_BROKER_SASL_ENABLED_MECHANISMS: PLAIN
+     KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+     KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+     KAFKA_SUPER_USERS: "User:admin"
+    # KAFKA_ZOOKEEPER_SASL_CLIENT: true
+     KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/secrets/kafka.sasl.jaas.conf"
+     KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+     KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+     KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+     KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+     CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka-3:9097
+     CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+     CONFLUENT_METRICS_ENABLE: 'true'
+     CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+     KAFKA_JMX_PORT: 9103
+     KAFKA_JMX_HOSTNAME: localhost
+
+ kafka-ui:
+   image: provectuslabs/kafka-ui:latest
+   restart: always
+   container_name: kafka-ui
+   ports:
+     - "8080:8080"
+   environment:
+     KAFKA_CLUSTERS_0_NAME: cluster0
+     KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9093
+     KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: SASL_SSL
+     KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM: PLAIN
+     KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin-secret";
+     KAFKA_CLUSTERS_0_SSL_TRUSTSTORELOCATION: /etc/kafka/secrets/kafka-1.truststore.jks
+     KAFKA_CLUSTERS_0_SSL_TRUSTSTOREPASSWORD: your-password
+     KAFKA_CLUSTERS_0_PROPERTIES_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: https
+     
+     KAFKA_CLUSTERS_1_NAME: cluster1
+     KAFKA_CLUSTERS_1_BOOTSTRAPSERVERS: kafka-destination-1:9192
+
+     # Настройки авторизации в Kafka UI
+     AUTH_TYPE: LOGIN_FORM
+     SPRING_SECURITY_USER_NAME: uiadmin
+     SPRING_SECURITY_USER_PASSWORD: uipass
+   volumes:
+     - ./ssl:/etc/kafka/secrets
+   networks:
+     - confluent
+
+ zookeeper-destination:
+   image: confluentinc/cp-zookeeper
+   restart: always
+   container_name: zookeeper-destination
+   hostname: zookeeper-destination
+   ports:
+     - "2184:2184"
+   networks:
+     - confluent 
+   environment:
+     ZOOKEEPER_CLIENT_PORT: 2184
+ 
+ kafka-destination-1:
+   image: confluentinc/cp-kafka
+   container_name: kafka-destination-1
+   hostname: kafka-destination-1
+   ports:
+     - "9192:9192"
+   networks:
+     - confluent     
+   depends_on:
+     - zookeeper-destination
+   environment:
+     KAFKA_BROKER_ID: 1
+     KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-destination:2184'
+     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9192
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-destination-1:9192
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+     
+ kafka-destination-2:
+   image: confluentinc/cp-kafka
+   container_name: kafka-destination-2
+   hostname: kafka-destination-2
+   ports:
+     - "9193:9193"
+   networks:
+     - confluent     
+   depends_on:
+     - zookeeper-destination
+   environment:
+     KAFKA_BROKER_ID: 2
+     KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-destination:2184'
+     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9193
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-destination-2:9193
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+
+ kafka-destination-3:
+   image: confluentinc/cp-kafka
+   container_name: kafka-destination-3
+   hostname: kafka-destination-3
+   ports:
+     - "9194:9194"
+   networks:
+     - confluent     
+   depends_on:
+     - zookeeper-destination
+   environment:
+     KAFKA_BROKER_ID: 3
+     KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-destination:2184'
+     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9194
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-destination-3:9194
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+
+ schema-registry:
+   image: confluentinc/cp-schema-registry:7.4.0
+   hostname: schema-registry
+   container_name: schema-registry
+   depends_on:
+     - kafka-1
+     - kafka-2
+     - kafka-3
+   ports:
+     - "8081:8081"
+   networks:
+     - confluent
+   environment:
+     SCHEMA_REGISTRY_HOST_NAME: schema-registry
+     SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka-1:9093,kafka-2:9095,kafka-3:9097
+     SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+     SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_SSL
+     SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: PLAIN
+     SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin-secret";
+     SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_LOCATION: /etc/kafka/secrets/kafka-1.truststore.jks
+     SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_PASSWORD: your-password
+     
+     # SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_LOCATION: /etc/kafka/secrets/kafka-1.keystore.pkcs12
+     # SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_PASSWORD: your-password
+     # SCHEMA_REGISTRY_KAFKASTORE_SSL_KEY_PASSWORD: your-password
+
+     # SCHEMA_REGISTRY_INTER_INSTANCE_PROTOCOL: https 
+     # SCHEMA_REGISTRY_SCHEMA_REGISTRY_INTER_INSTANCE_PROTOCOL: "https"
+     # SCHEMA_REGISTRY_LOG4J_ROOT_LOGLEVEL: INFO
+     SCHEMA_REGISTRY_KAFKASTORE_TOPIC: _schemas
+     SCHEMA_REGISTRY_KAFKASTORE_INIT_TIMEOUT: '60000'
+     SCHEMA_REGISTRY_KAFKASTORE_REPLICATION_FACTOR: '1'
+     SCHEMA_REGISTRY_MASTER_ELIGIBILITY: 'true'
+     SCHEMA_REGISTRY_SCHEMA_REGISTRY_ID: '1'
+     SCHEMA_REGISTRY_DEBUG: 'true'
+     
+     # SCHEMA_REGISTRY_SSL_CLIENT_AUTHENTICATION: "REQUIRED"
+     # SCHEMA_REGISTRY_SSL_TRUSTSTORE_LOCATION: /etc/kafka/secrets/kafka-1.truststore.jks
+     # SCHEMA_REGISTRY_SSL_TRUSTSTORE_PASSWORD: your-password
+     # SCHEMA_REGISTRY_SSL_KEYSTORE_LOCATION: /etc/kafka/secrets/kafka-1.keystore.pkcs12
+     # SCHEMA_REGISTRY_SSL_KEYSTORE_PASSWORD: your-password
+     # SCHEMA_REGISTRY_SSL_KEY_PASSWORD: your-password
+
+     SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_ORIGIN: "*"
+     SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_METHODS: "GET,POST,PUT,DELETE OPTIONS"
+   volumes:
+     - ./ssl:/etc/kafka/secrets
+
+ connect:
+   image: cnfldemos/cp-server-connect-datagen:0.5.3-7.1.0
+   hostname: connect
+   container_name: connect
+   depends_on:
+     - kafka-1
+     - kafka-2
+     - kafka-3
+     - schema-registry
+   ports:
+     - "8083:8083"
+     - "28082:28082"
+   networks:
+     - confluent     
+   environment:
+     CONNECT_BOOTSTRAP_SERVERS: 'kafka-1:9093,kafka-2:9095,kafka-3:9097'
+     CONNECT_REST_ADVERTISED_HOST_NAME: localhost # connect
+     CONNECT_REST_PORT: '28082'
+     CONNECT_GROUP_ID: 'kafka-connect'
+     CONNECT_CONFIG_STORAGE_TOPIC: 'connect-config-storage'
+     CONNECT_OFFSET_STORAGE_TOPIC: 'connect-offset-storage'
+     CONNECT_STATUS_STORAGE_TOPIC: 'connect-status-storage'
+     CONNECT_OFFSET_FLUSH_INTERVAL_MS: 10000
+     CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+     CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+     CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+     CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+     CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+     CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+     # CLASSPATH required due to CC-2422
+     # CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-7.4.0.jar
+     # CONNECT_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
+     # CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
+     CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components,/etc/kafka-connect/jars"
+     # CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR,org.apache.kafka.connect=INFO,org.apache.kafka.clients=INFO
+     # Connect worker
+     CONNECT_SECURITY_PROTOCOL: SASL_SSL
+     CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin-secret";
+     CONNECT_SASL_MECHANISM: PLAIN
+     CONNECT_SSL_TRUSTSTORE_LOCATION: /etc/kafka/secrets/kafka-1.truststore.jks
+     CONNECT_SSL_TRUSTSTORE_PASSWORD: your-password
+     CONNECT_SSL_KEYSTORE_LOCATION: /etc/kafka/secrets/kafka-1.keystore.pkcs12
+     CONNECT_SSL_KEYSTORE_PASSWORD: your-password
+     # Connect producer
+     # CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
+     # CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="producer" password="producer-secret";
+     # CONNECT_PRODUCER_SASL_MECHANISM: PLAIN
+     # CONNECT_PRODUCER_SSL_TRUSTSTORE_LOCATION: /etc/kafka/secrets/kafka-1.truststore.jks
+     # CONNECT_PRODUCER_SSL_TRUSTSTORE_PASSWORD: your-password
+     # CONNECT_PRODUCER_SSL_KEYSTORE_LOCATION: /etc/kafka/secrets/kafka.connect.keystore.jks
+     # CONNECT_PRODUCER_SSL_KEYSTORE_PASSWORD: confluent
+     # CONNECT_PRODUCER_SSL_KEY_PASSWORD: confluent
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SECURITY_PROTOCOL: SASL_SSL
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin-secret";
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SASL_MECHANISM: PLAIN
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SSL_TRUSTSTORE_LOCATION: /etc/kafka/secrets/kafka-1.truststore.jks
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SSL_TRUSTSTORE_PASSWORD: your-password
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SSL_KEYSTORE_LOCATION: /etc/kafka/secrets/kafka-1.keystore.pkcs12
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SSL_KEYSTORE_PASSWORD: your-password
+     # CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SSL_KEY_PASSWORD: your-password
+   volumes:
+     - ./confluent-hub-components/:/etc/kafka-connect/jars
+     - ./ssl:/etc/kafka/secrets
+
+
+
+ postgres:
+   image: postgres:15
+   container_name: postgres
+   restart: always
+   environment:
+     POSTGRES_DB: mydatabase
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: postgres_password
+   ports:
+     - "5432:5432"
+   networks:
+     - confluent
+   volumes:
+     - ./postgres_data:/var/lib/postgresql/data
+     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+volumes:
+  data-zookeeper-log-1:
+  data-zookeeper-data-1:
+  data-zookeeper-log-2:
+  data-zookeeper-data-2:
+  data-zookeeper-log-3:
+  data-zookeeper-data-3:
+  data-kafka-1:
+  data-kafka-2:
+  data-kafka-3:
+  schema-registry:
+  postgres_data:
+
+networks:
+ confluent:
+  driver: bridge

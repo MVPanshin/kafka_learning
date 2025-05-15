@@ -1,0 +1,1027 @@
+[
+    {
+        "product_id": "12345",
+        "name": "Умные часы XYZ",
+        "description": "Умные часы с функцией мониторинга здоровья, GPS и уведомлениями.",
+        "price": {
+            "amount": 4999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "XYZ",
+        "stock": {
+            "available": 150,
+            "reserved": 20
+        },
+        "sku": "XYZ-12345",
+        "tags": [
+            "умные часы",
+            "гаджеты",
+            "технологии"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product1.jpg ",
+                "alt": "Умные часы XYZ - вид спереди"
+            },
+            {
+                "url": "https://example.com/images/product1_side.jpg ",
+                "alt": "Умные часы XYZ - вид сбоку"
+            }
+        ],
+        "specifications": {
+            "weight": "50g",
+            "dimensions": "42mm x 36mm x 10mm",
+            "battery_life": "24 hours",
+            "water_resistance": "IP68"
+        },
+        "created_at": "2023-10-01T12:00:00Z",
+        "updated_at": "2023-10-10T15:30:00Z",
+        "index": "products",
+        "store_id": "store_001"
+    },
+    {
+        "product_id": "12346",
+        "name": "Беспроводные наушники AirPods Pro",
+        "description": "Наушники с шумоподавлением, беспроводной зарядкой и высоким качеством звука.",
+        "price": {
+            "amount": 19999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Apple",
+        "stock": {
+            "available": 75,
+            "reserved": 10
+        },
+        "sku": "APL-12346",
+        "tags": [
+            "наушники",
+            "Bluetooth",
+            "звук"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product2.jpg ",
+                "alt": "AirPods Pro - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product2_box.jpg ",
+                "alt": "Коробка AirPods Pro"
+            }
+        ],
+        "specifications": {
+            "weight": "40g",
+            "dimensions": "40mm x 30mm x 20mm",
+            "battery_life": "30 hours",
+            "water_resistance": "IPX4"
+        },
+        "created_at": "2023-10-02T10:15:00Z",
+        "updated_at": "2023-10-11T09:45:00Z",
+        "index": "products",
+        "store_id": "store_002"
+    },
+    {
+        "product_id": "12347",
+        "name": "Планшет Galaxy Tab S9",
+        "description": "Высокопроизводительный планшет с AMOLED дисплеем и поддержкой S Pen.",
+        "price": {
+            "amount": 34999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Samsung",
+        "stock": {
+            "available": 50,
+            "reserved": 5
+        },
+        "sku": "SAM-12347",
+        "tags": [
+            "планшет",
+            "Android",
+            "Samsung"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product3.jpg ",
+                "alt": "Galaxy Tab S9 - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product3_pen.jpg ",
+                "alt": "S Pen к Galaxy Tab S9"
+            }
+        ],
+        "specifications": {
+            "weight": "550g",
+            "dimensions": "250mm x 170mm x 7mm",
+            "battery_life": "15 hours",
+            "water_resistance": "IP68"
+        },
+        "created_at": "2023-10-03T08:00:00Z",
+        "updated_at": "2023-10-12T11:00:00Z",
+        "index": "products",
+        "store_id": "store_003"
+    },
+    {
+        "product_id": "12348",
+        "name": "Фитнес-браслет FitBand Lite",
+        "description": "Стильный фитнес-браслет для отслеживания активности и пульса.",
+        "price": {
+            "amount": 1999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "FitTech",
+        "stock": {
+            "available": 200,
+            "reserved": 15
+        },
+        "sku": "FIT-12348",
+        "tags": [
+            "фитнес",
+            "трекер",
+            "здоровье"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product4.jpg ",
+                "alt": "FitBand Lite - надетый на руку"
+            },
+            {
+                "url": "https://example.com/images/product4_charger.jpg ",
+                "alt": "Зарядное устройство FitBand Lite"
+            }
+        ],
+        "specifications": {
+            "weight": "25g",
+            "dimensions": "20mm x 15mm x 8mm",
+            "battery_life": "10 days",
+            "water_resistance": "IP67"
+        },
+        "created_at": "2023-10-04T14:20:00Z",
+        "updated_at": "2023-10-13T16:40:00Z",
+        "index": "products",
+        "store_id": "store_004"
+    },
+    {
+        "product_id": "12349",
+        "name": "Электрический чайник SmartBoil 2000W",
+        "description": "Чайник с автоматическим отключением и быстрым нагревом воды.",
+        "price": {
+            "amount": 2499.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "HomeTech",
+        "stock": {
+            "available": 120,
+            "reserved": 10
+        },
+        "sku": "HMT-12349",
+        "tags": [
+            "чайник",
+            "техника",
+            "быт"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product5.jpg ",
+                "alt": "SmartBoil 2000W - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product5_detail.jpg ",
+                "alt": "Детали конструкции чайника"
+            }
+        ],
+        "specifications": {
+            "weight": "1.2kg",
+            "dimensions": "25cm x 15cm x 15cm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-05T09:30:00Z",
+        "updated_at": "2023-10-14T13:15:00Z",
+        "index": "products",
+        "store_id": "store_005"
+    },
+    {
+        "product_id": "12350",
+        "name": "Ноутбук MacBook Air M2",
+        "description": "Легкий и мощный ноутбук Apple с процессором M2 и Retina-дисплеем.",
+        "price": {
+            "amount": 94999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Apple",
+        "stock": {
+            "available": 30,
+            "reserved": 5
+        },
+        "sku": "APL-12350",
+        "tags": [
+            "ноутбук",
+            "Mac",
+            "работа"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product6.jpg ",
+                "alt": "MacBook Air M2 - вид сверху"
+            },
+            {
+                "url": "https://example.com/images/product6_open.jpg ",
+                "alt": "Открытый MacBook Air"
+            }
+        ],
+        "specifications": {
+            "weight": "1.25kg",
+            "dimensions": "304.1mm x 212.4mm x 11.3mm",
+            "battery_life": "18 hours",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-06T11:45:00Z",
+        "updated_at": "2023-10-15T14:00:00Z",
+        "index": "products",
+        "store_id": "store_006"
+    },
+    {
+        "product_id": "12351",
+        "name": "Телевизор QLED Samsung QE55Q60B",
+        "description": "Телевизор с QLED-дисплеем, разрешением 4K и поддержкой HDR.",
+        "price": {
+            "amount": 59999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Samsung",
+        "stock": {
+            "available": 25,
+            "reserved": 3
+        },
+        "sku": "SAM-12351",
+        "tags": [
+            "телевизор",
+            "4K",
+            "Samsung"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product7.jpg ",
+                "alt": "Samsung QE55Q60B - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product7_mounted.jpg ",
+                "alt": "Телевизор на стене"
+            }
+        ],
+        "specifications": {
+            "weight": "18.5kg",
+            "dimensions": "1230mm x 710mm x 25mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-07T16:00:00Z",
+        "updated_at": "2023-10-16T10:30:00Z",
+        "index": "products",
+        "store_id": "store_007"
+    },
+    {
+        "product_id": "12352",
+        "name": "Микроволновая печь LG MS-2042TW",
+        "description": "Микроволновая печь с функцией гриля и цифровым управлением.",
+        "price": {
+            "amount": 4999.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "LG",
+        "stock": {
+            "available": 80,
+            "reserved": 10
+        },
+        "sku": "LG-12352",
+        "tags": [
+            "микроволновка",
+            "кухня",
+            "печь"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product8.jpg ",
+                "alt": "LG MS-2042TW - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product8_open.jpg ",
+                "alt": "Открытая микроволновка"
+            }
+        ],
+        "specifications": {
+            "weight": "12kg",
+            "dimensions": "480mm x 380mm x 270mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-08T09:00:00Z",
+        "updated_at": "2023-10-17T12:45:00Z",
+        "index": "products",
+        "store_id": "store_008"
+    },
+    {
+        "product_id": "12353",
+        "name": "Рюкзак Tatonka Trail 40",
+        "description": "Лёгкий походный рюкзак с хорошей вентиляцией и множеством карманов.",
+        "price": {
+            "amount": 5499.99,
+            "currency": "RUB"
+        },
+        "category": "Спорт и отдых",
+        "brand": "Tatonka",
+        "stock": {
+            "available": 45,
+            "reserved": 5
+        },
+        "sku": "TAT-12353",
+        "tags": [
+            "рюкзак",
+            "поход",
+            "туризм"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product9.jpg ",
+                "alt": "Tatonka Trail 40 - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product9_back.jpg ",
+                "alt": "Спинка рюкзака"
+            }
+        ],
+        "specifications": {
+            "weight": "1.2kg",
+            "dimensions": "30cm x 20cm x 50cm",
+            "battery_life": "N/A",
+            "water_resistance": "да"
+        },
+        "created_at": "2023-10-09T13:15:00Z",
+        "updated_at": "2023-10-18T09:20:00Z",
+        "index": "products",
+        "store_id": "store_009"
+    },
+    {
+        "product_id": "12354",
+        "name": "Игровая консоль PlayStation 5",
+        "description": "Игровая консоль нового поколения с поддержкой 4K и SSD-накопителем.",
+        "price": {
+            "amount": 44999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Sony",
+        "stock": {
+            "available": 20,
+            "reserved": 2
+        },
+        "sku": "SON-12354",
+        "tags": [
+            "PlayStation",
+            "игры",
+            "консоль"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product10.jpg ",
+                "alt": "PlayStation 5 - вертикальный вид"
+            },
+            {
+                "url": "https://example.com/images/product10_horizontal.jpg ",
+                "alt": "PlayStation 5 - горизонтальный вид"
+            }
+        ],
+        "specifications": {
+            "weight": "4.5kg",
+            "dimensions": "390mm x 108mm x 260mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-10T15:00:00Z",
+        "updated_at": "2023-10-19T11:30:00Z",
+        "index": "products",
+        "store_id": "store_010"
+    },
+    {
+        "product_id": "12355",
+        "name": "Телефон OnePlus Nord CE 2",
+        "description": "Производительный смартфон с AMOLED-дисплеем и тройной камерой.",
+        "price": {
+            "amount": 29999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "OnePlus",
+        "stock": {
+            "available": 60,
+            "reserved": 8
+        },
+        "sku": "ONP-12355",
+        "tags": [
+            "телефон",
+            "смартфон",
+            "камера"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product11.jpg ",
+                "alt": "OnePlus Nord CE 2 - вид спереди"
+            },
+            {
+                "url": "https://example.com/images/product11_back.jpg ",
+                "alt": "Одна камера сзади"
+            }
+        ],
+        "specifications": {
+            "weight": "190g",
+            "dimensions": "160mm x 75mm x 8mm",
+            "battery_life": "25 hours",
+            "water_resistance": "IP64"
+        },
+        "created_at": "2023-10-11T10:00:00Z",
+        "updated_at": "2023-10-20T14:20:00Z",
+        "index": "products",
+        "store_id": "store_011"
+    },
+    {
+        "product_id": "12356",
+        "name": "Пылесос Dyson V15 Detect",
+        "description": "Беспроводной пылесос с лазерным детектором пыли и мощным всасыванием.",
+        "price": {
+            "amount": 39999.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "Dyson",
+        "stock": {
+            "available": 35,
+            "reserved": 5
+        },
+        "sku": "DYS-12356",
+        "tags": [
+            "пылесос",
+            "уборка",
+            "бытовая техника"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product12.jpg ",
+                "alt": "Dyson V15 Detect - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product12_tool.jpg ",
+                "alt": "Насадка с лазером"
+            }
+        ],
+        "specifications": {
+            "weight": "3.1kg",
+            "dimensions": "250mm x 80mm x 250mm",
+            "battery_life": "60 minutes",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-12T12:30:00Z",
+        "updated_at": "2023-10-21T10:10:00Z",
+        "index": "products",
+        "store_id": "store_012"
+    },
+    {
+        "product_id": "12357",
+        "name": "Кофемашина DeLonghi Magnifica",
+        "description": "Автоматическая кофемашина с капучинатором и системой самоочистки.",
+        "price": {
+            "amount": 44999.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "DeLonghi",
+        "stock": {
+            "available": 22,
+            "reserved": 3
+        },
+        "sku": "DEL-12357",
+        "tags": [
+            "кофе",
+            "машина",
+            "кофемашина"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product13.jpg ",
+                "alt": "DeLonghi Magnifica - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product13_cup.jpg ",
+                "alt": "Кружка с эспрессо"
+            }
+        ],
+        "specifications": {
+            "weight": "10kg",
+            "dimensions": "430mm x 230mm x 350mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-13T09:45:00Z",
+        "updated_at": "2023-10-22T11:25:00Z",
+        "index": "products",
+        "store_id": "store_013"
+    },
+    {
+        "product_id": "12358",
+        "name": "Гироскутер Razor Hovertrax 2.0",
+        "description": "Электрический гироскутер с LED-подсветкой и улучшенной батареей.",
+        "price": {
+            "amount": 17999.99,
+            "currency": "RUB"
+        },
+        "category": "Транспорт",
+        "brand": "Razor",
+        "stock": {
+            "available": 50,
+            "reserved": 7
+        },
+        "sku": "RAZ-12358",
+        "tags": [
+            "гироскутер",
+            "электротранспорт",
+            "движение"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product14.jpg ",
+                "alt": "Razor Hovertrax 2.0 - вид спереди"
+            },
+            {
+                "url": "https://example.com/images/product14_led.jpg ",
+                "alt": "LED-подсветка колес"
+            }
+        ],
+        "specifications": {
+            "weight": "11kg",
+            "dimensions": "680mm x 230mm x 180mm",
+            "battery_life": "75 minutes",
+            "water_resistance": "IP54"
+        },
+        "created_at": "2023-10-14T14:00:00Z",
+        "updated_at": "2023-10-23T13:10:00Z",
+        "index": "products",
+        "store_id": "store_014"
+    },
+    {
+        "product_id": "12359",
+        "name": "Электросамокат Xiaomi Mi Essential",
+        "description": "Легкий электросамокат с компактной конструкцией и длительным временем работы.",
+        "price": {
+            "amount": 24999.99,
+            "currency": "RUB"
+        },
+        "category": "Транспорт",
+        "brand": "Xiaomi",
+        "stock": {
+            "available": 40,
+            "reserved": 6
+        },
+        "sku": "XIA-12359",
+        "tags": [
+            "самокат",
+            "электросамокат",
+            "движение"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product15.jpg ",
+                "alt": "Xiaomi Mi Essential - вид сбоку"
+            },
+            {
+                "url": "https://example.com/images/product15_folded.jpg ",
+                "alt": "Сложенный самокат"
+            }
+        ],
+        "specifications": {
+            "weight": "12.5kg",
+            "dimensions": "1150mm x 430mm x 1100mm",
+            "battery_life": "30 km range",
+            "water_resistance": "IP54"
+        },
+        "created_at": "2023-10-15T16:20:00Z",
+        "updated_at": "2023-10-24T15:30:00Z",
+        "index": "products",
+        "store_id": "store_015"
+    },
+    {
+        "product_id": "12360",
+        "name": "Фотоаппарат Canon EOS R6 Mark II",
+        "description": "Полнокадровая беззеркальная камера с возможностью видеосъёмки 4K и высокой чувствительностью.",
+        "price": {
+            "amount": 149999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Canon",
+        "stock": {
+            "available": 15,
+            "reserved": 2
+        },
+        "sku": "CAN-12360",
+        "tags": [
+            "камера",
+            "фотография",
+            "Canon"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product16.jpg ",
+                "alt": "Canon EOS R6 Mark II - вид спереди"
+            },
+            {
+                "url": "https://example.com/images/product16_lens.jpg ",
+                "alt": "Объектив и камера в сборке"
+            }
+        ],
+        "specifications": {
+            "weight": "670g",
+            "dimensions": "138mm x 98mm x 88mm",
+            "battery_life": "450 shots",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-16T11:10:00Z",
+        "updated_at": "2023-10-25T12:20:00Z",
+        "index": "products",
+        "store_id": "store_016"
+    },
+    {
+        "product_id": "12361",
+        "name": "Триммер для бороды Philips QT4003",
+        "description": "Многофункциональный триммер для ухода за бородой и усами с точными насадками.",
+        "price": {
+            "amount": 2999.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "Philips",
+        "stock": {
+            "available": 90,
+            "reserved": 10
+        },
+        "sku": "PHI-12361",
+        "tags": [
+            "триммер",
+            "борода",
+            "гигиена"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product17.jpg ",
+                "alt": "Philips QT4003 - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product17_accessories.jpg ",
+                "alt": "Насадки в комплекте"
+            }
+        ],
+        "specifications": {
+            "weight": "150g",
+            "dimensions": "160mm x 40mm x 30mm",
+            "battery_life": "60 minutes",
+            "water_resistance": "да"
+        },
+        "created_at": "2023-10-17T08:45:00Z",
+        "updated_at": "2023-10-26T10:00:00Z",
+        "index": "products",
+        "store_id": "store_017"
+    },
+    {
+        "product_id": "12362",
+        "name": "Увлажнитель воздуха Boneco S450",
+        "description": "Ультразвуковой увлажнитель воздуха с функцией ионизации и таймером.",
+        "price": {
+            "amount": 7999.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "Boneco",
+        "stock": {
+            "available": 30,
+            "reserved": 4
+        },
+        "sku": "BON-12362",
+        "tags": [
+            "увлажнитель",
+            "воздух",
+            "здоровье"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product18.jpg ",
+                "alt": "Boneco S450 - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product18_light.jpg ",
+                "alt": "Подсветка дисплея"
+            }
+        ],
+        "specifications": {
+            "weight": "1.8kg",
+            "dimensions": "250mm x 150mm x 300mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-18T13:20:00Z",
+        "updated_at": "2023-10-27T14:10:00Z",
+        "index": "products",
+        "store_id": "store_018"
+    },
+    {
+        "product_id": "12363",
+        "name": "Камера видеонаблюдения Xiaomi Mi Home Security Camera 360°",
+        "description": "IP-камера с углом обзора 360 градусов, ночным виденьем и облачным хранилищем.",
+        "price": {
+            "amount": 3999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Xiaomi",
+        "stock": {
+            "available": 70,
+            "reserved": 10
+        },
+        "sku": "XIA-12363",
+        "tags": [
+            "камера",
+            "безопасность",
+            "наблюдение"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product19.jpg ",
+                "alt": "Mi Home Camera - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product19_app.jpg ",
+                "alt": "Просмотр через приложение"
+            }
+        ],
+        "specifications": {
+            "weight": "200g",
+            "dimensions": "100mm x 100mm x 80mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-19T15:30:00Z",
+        "updated_at": "2023-10-28T16:40:00Z",
+        "index": "products",
+        "store_id": "store_019"
+    },
+    {
+        "product_id": "12364",
+        "name": "Спортивные кроссовки Nike Revolution 6",
+        "description": "Легкие и удобные кроссовки для повседневной носки и тренировок.",
+        "price": {
+            "amount": 4999.99,
+            "currency": "RUB"
+        },
+        "category": "Одежда и обувь",
+        "brand": "Nike",
+        "stock": {
+            "available": 120,
+            "reserved": 15
+        },
+        "sku": "NIK-12364",
+        "tags": [
+            "кроссовки",
+            "спортивная обувь",
+            "Nike"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product20.jpg ",
+                "alt": "Nike Revolution 6 - вид сбоку"
+            },
+            {
+                "url": "https://example.com/images/product20_closeup.jpg ",
+                "alt": "Детали подошвы"
+            }
+        ],
+        "specifications": {
+            "weight": "250g",
+            "dimensions": "30cm x 12cm x 10cm",
+            "battery_life": "N/A",
+            "water_resistance": "частичная"
+        },
+        "created_at": "2023-10-20T10:15:00Z",
+        "updated_at": "2023-10-29T11:25:00Z",
+        "index": "products",
+        "store_id": "store_020"
+    },
+    {
+        "product_id": "12365",
+        "name": "Рюкзак Samsonite Proxis",
+        "description": "Деловой рюкзак с отделением для ноутбука и эргономичными лямками.",
+        "price": {
+            "amount": 6999.99,
+            "currency": "RUB"
+        },
+        "category": "Спорт и отдых",
+        "brand": "Samsonite",
+        "stock": {
+            "available": 40,
+            "reserved": 5
+        },
+        "sku": "SAM-12365",
+        "tags": [
+            "рюкзак",
+            "ноутбук",
+            "офис"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product21.jpg ",
+                "alt": "Samsonite Proxis - вид спереди"
+            },
+            {
+                "url": "https://example.com/images/product21_interior.jpg ",
+                "alt": "Внутреннее пространство"
+            }
+        ],
+        "specifications": {
+            "weight": "1.1kg",
+            "dimensions": "32cm x 22cm x 48cm",
+            "battery_life": "N/A",
+            "water_resistance": "да"
+        },
+        "created_at": "2023-10-21T12:00:00Z",
+        "updated_at": "2023-10-30T13:10:00Z",
+        "index": "products",
+        "store_id": "store_021"
+    },
+    {
+        "product_id": "12366",
+        "name": "Электрогриль Redmond RGM-M902S",
+        "description": "Гриль с антипригарным покрытием, термостатом и функцией вертела.",
+        "price": {
+            "amount": 5999.99,
+            "currency": "RUB"
+        },
+        "category": "Бытовая техника",
+        "brand": "Redmond",
+        "stock": {
+            "available": 25,
+            "reserved": 3
+        },
+        "sku": "RED-12366",
+        "tags": [
+            "гриль",
+            "кухня",
+            "готовка"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product22.jpg ",
+                "alt": "Redmond RGM-M902S - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product22_grill.jpg ",
+                "alt": "Процесс жарки на гриле"
+            }
+        ],
+        "specifications": {
+            "weight": "5.5kg",
+            "dimensions": "400mm x 250mm x 200mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-22T09:30:00Z",
+        "updated_at": "2023-10-31T10:40:00Z",
+        "index": "products",
+        "store_id": "store_022"
+    },
+    {
+        "product_id": "12367",
+        "name": "Настольная лампа Xiaomi Mijia LED Lamp 1S",
+        "description": "Сенсорная лампа с регулировкой яркости и цветовой температуры.",
+        "price": {
+            "amount": 1999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "Xiaomi",
+        "stock": {
+            "available": 100,
+            "reserved": 10
+        },
+        "sku": "XIA-12367",
+        "tags": [
+            "лампа",
+            "дом",
+            "освещение"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product23.jpg ",
+                "alt": "Mijia LED Lamp 1S - вид сверху"
+            },
+            {
+                "url": "https://example.com/images/product23_light.jpg ",
+                "alt": "Яркость освещения"
+            }
+        ],
+        "specifications": {
+            "weight": "400g",
+            "dimensions": "150mm x 150mm x 400mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-23T14:20:00Z",
+        "updated_at": "2023-11-01T15:30:00Z",
+        "index": "products",
+        "store_id": "store_023"
+    },
+    {
+        "product_id": "12368",
+        "name": "Беговая дорожка Sportop T900",
+        "description": "Профессиональная беговая дорожка с мощным двигателем и амортизацией.",
+        "price": {
+            "amount": 89999.99,
+            "currency": "RUB"
+        },
+        "category": "Спорт и отдых",
+        "brand": "Sportop",
+        "stock": {
+            "available": 10,
+            "reserved": 1
+        },
+        "sku": "SPO-12368",
+        "tags": [
+            "беговая дорожка",
+            "тренажер",
+            "спорт"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product24.jpg ",
+                "alt": "Sportop T900 - общий вид"
+            },
+            {
+                "url": "https://example.com/images/product24_running.jpg ",
+                "alt": "Человек на беговой дорожке"
+            }
+        ],
+        "specifications": {
+            "weight": "85kg",
+            "dimensions": "1800mm x 800mm x 1400mm",
+            "battery_life": "N/A",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-24T16:00:00Z",
+        "updated_at": "2023-11-02T11:15:00Z",
+        "index": "products",
+        "store_id": "store_024"
+    },
+    {
+        "product_id": "12369",
+        "name": "Ноутбук ASUS ZenBook UX425",
+        "description": "Ультратонкий ноутбук с OLED-дисплеем и процессором Intel Core i7.",
+        "price": {
+            "amount": 74999.99,
+            "currency": "RUB"
+        },
+        "category": "Электроника",
+        "brand": "ASUS",
+        "stock": {
+            "available": 20,
+            "reserved": 2
+        },
+        "sku": "ASU-12369",
+        "tags": [
+            "ноутбук",
+            "работа",
+            "ультрабук"
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/product25.jpg ",
+                "alt": "ASUS ZenBook UX425 - вид сверху"
+            },
+            {
+                "url": "https://example.com/images/product25_open.jpg ",
+                "alt": "Открытый экран ноутбука"
+            }
+        ],
+        "specifications": {
+            "weight": "1.13kg",
+            "dimensions": "313mm x 220mm x 13.9mm",
+            "battery_life": "12 hours",
+            "water_resistance": "нет"
+        },
+        "created_at": "2023-10-25T11:45:00Z",
+        "updated_at": "2023-11-03T12:30:00Z",
+        "index": "products",
+        "store_id": "store_025"
+    }
+]

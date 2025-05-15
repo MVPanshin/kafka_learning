@@ -1,0 +1,41 @@
+[{
+    "order_id": "ORD-1001",
+    "customer_id": "CUST-001",
+    "items": [
+      {
+        "product_id": "12345",
+        "name": "Умные часы XYZ",
+        "sku": "XYZ-12345",
+        "brand": "XYZ",
+        "category": "Электроника",
+        "price": 4999.99,
+        "quantity": 1,
+        "total_price":4999.99
+      },
+      {
+        "product_id": "12350",
+        "name": "Беспроводные наушники AirPods Pro",
+        "sku": "APL-12346",
+        "brand": "Apple",
+        "category": "Электроника",
+        "price": 19999.99,
+        "quantity": 2,
+        "total_price":39999.98
+      }
+    ],
+    "total_amount": 44999.97,
+    "shipping": {
+      "method": "Доставка курьером",
+      "cost": 499.00,
+      "estimated_delivery": "2023-11-05T10:00:00Z",
+      "status": "в обработке"
+    },
+    "payment": {
+      "method": "банковская карта",
+      "status": "оплачено",
+      "transaction_id": "TXN-789456123"
+    },
+    "order_date": "2023-11-01T09:30:00Z",
+    "status": "подтверждён",
+    "notes": "Прошу упаковать аккуратно и позвонить за час до доставки."
+  }]

@@ -1,0 +1,8 @@
+hdfs
+confluent-kafka
+httpx
+attrs
+cachetools
+authlib
+fastavro
+avro

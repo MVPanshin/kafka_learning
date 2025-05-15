@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration>
+   <property>
+       <name>dfs.replication</name>
+       <value>3</value>
+   </property>
+   <property>
+    <name>dfs.namenode.http-address</name>
+    <value>hadoop-namenode:9870</value>
+  </property>
+   <property>
+       <name>dfs.namenode.name.dir</name>
+       <value>file:/usr/local/hadoop/hdfs/namenode</value>
+   </property>
+</configuration>

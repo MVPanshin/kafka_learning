@@ -1,0 +1,122 @@
+{
+    "type": "record",
+    "name": "Order",
+    "namespace": "com.example.schema",
+    "fields": [
+      {
+        "name": "order_id",
+        "type": "string"
+      },
+      {
+        "name": "customer_id",
+        "type": "string"
+      },
+      {
+        "name": "items",
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "record",
+            "name": "OrderItem",
+            "fields": [
+              {
+                "name": "product_id",
+                "type": "string"
+              },
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "sku",
+                "type": "string"
+              },
+              {
+                "name": "brand",
+                "type": "string"
+              },
+              {
+                "name": "category",
+                "type": "string"
+              },
+              {
+                "name": "price",
+                "type": "double"
+              },
+              {
+                "name": "quantity",
+                "type": "int"
+              },
+              {
+                "name": "total_price",
+                "type": "double"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "total_amount",
+        "type": "double"
+      },
+      {
+        "name": "shipping",
+        "type": {
+          "type": "record",
+          "name": "ShippingDetails",
+          "fields": [
+            {
+              "name": "method",
+              "type": "string"
+            },
+            {
+              "name": "cost",
+              "type": "double"
+            },
+            {
+              "name": "estimated_delivery",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "payment",
+        "type": {
+          "type": "record",
+          "name": "PaymentDetails",
+          "fields": [
+            {
+              "name": "method",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            },
+            {
+              "name": "transaction_id",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "order_date",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "name": "notes",
+        "type": ["null", "string"],
+        "default": null
+      }
+    ]
+  }

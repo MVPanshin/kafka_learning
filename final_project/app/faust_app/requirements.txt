@@ -1,0 +1,7 @@
+confluent-kafka
+faust-streaming
+fastavro
+httpx
+cachetools
+authlib
+avro

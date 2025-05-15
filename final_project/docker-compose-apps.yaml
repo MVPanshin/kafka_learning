@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+ producer:
+  image: python:3.10-slim
+  container_name: producer
+  networks:
+    - confluent
+  working_dir: /app
+  volumes:
+    - ./app/products:/app
+    - ./ssl:/app/ssl
+  # command: bash -c "pip install -r requirements.txt && python3 products_producer.py"
+  command: bash -c "pip install -r requirements.txt && tail -f /dev/null"
+  environment:
+    KAFKA_BOOTSTRAP_SERVERS: kafka-1:9093
+    SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+    KAFKA_PRODUCTS_TOPIC: "products"
+ 
+ consumer-api:
+  image: python:3.10-slim
+  container_name: consumer-api
+  working_dir: /app
+  ports:
+    - "8085:8085"
+  networks:
+    - confluent
+  command: bash -c "pip install -r requirements.txt && uvicorn orders_api:app --host 0.0.0.0 --port 8085"
+  environment:
+    PYTHONUNBUFFERED: 1
+    DATABASE_URL: postgresql+asyncpg://srv_search:srv_search@postgres/mydatabase
+    KAFKA_BOOTSTRAP_SERVERS: kafka-1:9093
+    SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+    KAFKA_PRODUCTS_TOPIC: "orders"
+    KAFKA_SEARCH_TOPIC: "search"
+  volumes:
+    - ./app/api:/app
+    - ./ssl:/app/ssl
+  restart: unless-stopped
+
+networks:
+ confluent:
+  driver: bridge

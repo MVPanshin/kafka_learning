@@ -1,0 +1,8 @@
+attrs
+avro
+authlib
+cachetools
+confluent-kafka
+fastavro
+httpx
+requests
